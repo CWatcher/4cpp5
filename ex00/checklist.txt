@@ -1,0 +1,1 @@
+throw() specificator for exception methods (as in video)
