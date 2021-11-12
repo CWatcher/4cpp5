@@ -11,12 +11,15 @@ int	main()
 	catch ( std::exception const & e )
 	{	std::cout << e.what() << std::endl;
 	}
-	Bureaucrat b1( "b1", 1 ), b150( "b150", 150 );
-	std::cout << b1 << b150 << std::endl;
+	std::cout << std::endl;
+	Bureaucrat b2( "b2", 2 );
+	std::cout << b2;
 	try
-	{	b1.incrementGrade();
+	{	b2.incrementGrade();
+		b2.incrementGrade();
 	}
 	catch ( Bureaucrat::GradeTooHighException const & e )
 	{	std::cout << e.what() << ": " << e.grade << std::endl;
 	}
+	std::cout << b2;
 }
