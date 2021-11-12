@@ -13,10 +13,14 @@ public:
 	public:
 		virtual char const * what() const throw();
 	};
-	Bureaucrat( std::string const & name = "bureaucrat", int grade = 150 );
-	Bureaucrat( Bureaucrat const & src );
+	Bureaucrat( std::string const & name = "bureaucrat", int grade = 150 )
+		throw ( GradeTooHighException, GradeTooLowException );
+	Bureaucrat( Bureaucrat const & src )
+		throw ( GradeTooHighException, GradeTooLowException );
 	~Bureaucrat();
 	Bureaucrat &		operator=( Bureaucrat const & rhs );
+	std::string			getName() const;
+	int					getGrade() const;
 private:
 	std::string	const	_name;
 	int					_grade;
