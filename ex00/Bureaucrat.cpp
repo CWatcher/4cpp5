@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include <sstream>
 
 Bureaucrat::GradeTooHighException::GradeTooHighException( int grade )
 :	grade( grade )
