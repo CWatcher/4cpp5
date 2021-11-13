@@ -2,19 +2,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "(lldb) Launch",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/aa",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "lldb",
-      "preLaunchTask": "make"
-    },
-    {
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
@@ -34,6 +21,19 @@
       ],
       "preLaunchTask": "make",
       "miDebuggerPath": "/usr/bin/gdb"
+    },
+    {
+      "name": "(lldb) Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/aa",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "make"
     }
   ]
 }
