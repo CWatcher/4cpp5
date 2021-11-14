@@ -1,6 +1,5 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
-#include <sstream>
 
 Form::GradeTooHighException::GradeTooHighException( int grade )
 :	grade( grade )
@@ -33,7 +32,7 @@ Form::Form( std::string const & name, int gradeToSign, int gradeToExecute )
 	checkGrade( _gradeToSign );
 	checkGrade( _gradeToExecute );
 }
-Form::Form( const Form & src )
+Form::Form( Form const & src )
 	throw ( GradeTooHighException, GradeTooLowException )
 :	  _name( src._name )
 	, _gradeToSign( src._gradeToSign ), _gradeToExecute( src._gradeToExecute )
@@ -44,7 +43,7 @@ Form::Form( const Form & src )
 Form::~Form()
 {}
 
-Form &	Form::operator=( Form const & rhs )
+Form &			Form::operator=( Form const & rhs )
 {
 	_isSigned = rhs._isSigned;
 	return *this;
@@ -52,10 +51,10 @@ Form &	Form::operator=( Form const & rhs )
 std::ostream &	operator<<( std::ostream & o, Form const & i ) throw()
 {
 	o << "Form { "
-	  << "name = "            << i.getName()           << ", "
-	  << "_gradeToSign = "    << i.getGradeToSign()    << ", "
-	  << "_gradeToExecute = " << i.getGradeToExecute() << ", "
-	  << "_isSigned = "       << i.getIsSigned()
+	  << "name = "           << i.getName()           << ", "
+	  << "gradeToSign = "    << i.getGradeToSign()    << ", "
+	  << "gradeToExecute = " << i.getGradeToExecute() << ", "
+	  << "isSigned = "       << i.getIsSigned()
 	  << " }" << std::endl;
 	return o;
 }

@@ -47,8 +47,10 @@ Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs )
 }
 std::ostream &	operator<<( std::ostream & o, Bureaucrat const & i ) throw()
 {
-	o << "name = " << i.getName() << ", ";
-	o << "grade = " << i.getGrade() << std::endl;
+	o << "Bureaucrat {"
+	  << "name = "  << i.getName()  << ", "
+	  << "grade = " << i.getGrade()
+  	  << " }" << std::endl;
 	return o;
 }
 
