@@ -1,25 +1,17 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 #include <exception>
 
 int	main()
 {
-	try
-	{	Bureaucrat bLow ("bLow", 151);
-		std::cout << bLow << std::endl;
-	}
-	catch ( std::exception const & e )
-	{	std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	Bureaucrat b2( "b2", 2 );
-	std::cout << b2;
-	try
-	{	b2.incrementGrade();
-		b2.incrementGrade();
-	}
-	catch ( Bureaucrat::GradeTooHighException const & e )
-	{	std::cout << e.what() << ": " << e.grade << std::endl;
-	}
-	std::cout << b2;
+	Bureaucrat	b150( "b150", 150 );
+	Bureaucrat	b1( "b1", 1 );
+	Form		f1( "f1", 1, 1 );
+
+	std::cout << b150 << b1 << f1
+	          << std::endl;
+
+	b150.signForm( f1 );
+	b1.signForm( f1 );
 }

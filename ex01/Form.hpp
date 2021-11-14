@@ -1,10 +1,11 @@
 #pragma once
-#include "Form.hpp"
 #include <exception>
 #include <iostream>
 #include <string>
 
-class Bureaucrat {
+class Bureaucrat;
+
+class Form {
 public:
 	class GradeTooHighException: public std::exception {
 	public:
@@ -18,23 +19,29 @@ public:
 		virtual char const * what() const throw();
 		int	const		grade;
 	};
-	Bureaucrat( std::string const & name = "bureaucrat", int grade = 150 )
+
+	Form(   std::string const & name = "form"
+		  , int gradeToSign = 1, int gradeToExecute = 1 )
 		throw ( GradeTooHighException, GradeTooLowException );
-	Bureaucrat( Bureaucrat const & src )
+	Form( Form const & src )
 		throw ( GradeTooHighException, GradeTooLowException );
-	~Bureaucrat();
-	Bureaucrat &	operator=( Bureaucrat const & rhs )
-		throw ( GradeTooHighException, GradeTooLowException );
-	std::string		getName() const throw();
-	int				getGrade() const throw();
-	int				incrementGrade() throw ( GradeTooHighException );
-	int				decrementGrade() throw ( GradeTooLowException );
-	void			signForm( Form & );
+	~Form();
+
+	Form &		operator=( Form const & rhs );
+	std::string	getName() const throw();
+	int			getGradeToSign() const throw();
+	int			getGradeToExecute() const throw();
+	bool		getIsSigned() const throw();
+	void		beSigned( Bureaucrat const & signer )
+		throw ( GradeTooLowException );
 private:
 	std::string	const	_name;
-	int					_grade;
-	void			checkGrade( int grade )
+	int	const			_gradeToSign;
+	int	const			_gradeToExecute;
+	bool				_isSigned;
+
+	void		checkGrade( int grade )
 		throw ( GradeTooHighException, GradeTooLowException );
 };
 
-std::ostream &	operator<<( std::ostream & o, Bureaucrat const & i ) throw();
+std::ostream &	operator<<( std::ostream & o, Form const & i ) throw();
