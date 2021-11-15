@@ -7,19 +7,18 @@
 
 Bureaucrat	b145( "b145", 145 );
 Bureaucrat	b25( "b25", 25 );
-Bureaucrat	b1( "b1", 1 );
+Bureaucrat	b5( "b5", 5 );
 
 void testForm( Form & f )
 {
 	std::cout << f
 	          << std::endl;
 
-	b1.executeForm( f );
 	b145.signForm( f );
+	b25.executeForm( f );
 	if ( !f.getIsSigned() )
 		b25.signForm( f );
-	b25.executeForm( f );
-	b1.executeForm( f );
+	b5.executeForm( f );
 }
 int	main()
 {
