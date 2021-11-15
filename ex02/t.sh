@@ -5,5 +5,4 @@ make > /dev/null		\
 	|| exit 1
 
 echo
-./aa
-
+valgrind -q ./aa

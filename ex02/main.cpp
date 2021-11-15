@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 #include <exception>
 
@@ -27,4 +28,9 @@ int	main()
 
 	RobotomyRequestForm	rrf( "RRTarget" );
 	testForm( rrf );
+	std::cout << std::endl;
+
+	ShrubberyCreationForm*	pSCF = new ShrubberyCreationForm( "SCTarget" );
+	testForm( *pSCF );
+	delete pSCF;
 }
