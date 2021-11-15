@@ -14,6 +14,9 @@ char const *	Form::GradeTooHighException::what() const throw()
 char const *	Form::GradeTooLowException::what() const throw()
 {	return "Grade is too low";
 }
+char const *	Form::IsNotSignedException::what() const throw()
+{	return "The form is not signed";
+}
 
 void	Form::checkGrade( int grade ) const
 	throw ( GradeTooHighException, GradeTooLowException )
@@ -24,9 +27,10 @@ void	Form::checkGrade( int grade ) const
 		throw Form::GradeTooLowException( grade );
 }
 
-Form::Form( std::string const & name, int gradeToSign, int gradeToExecute )
+Form::Form(   std::string const & name, std::string const & target
+		    , int gradeToSign, int gradeToExecute )
 	throw ( GradeTooHighException, GradeTooLowException )
-:	  _name( name )
+:	  _name( name ), _target( target )
 	, _gradeToSign( gradeToSign ), _gradeToExecute( gradeToExecute )
 	, _isSigned( false )
 {
@@ -53,6 +57,7 @@ std::ostream &	operator<<( std::ostream & o, Form const & i ) throw()
 {
 	o << "Form { "
 	  << "name = "           << i.getName()           << ", "
+	  << "target = "         << i.getTarget()         << ", "
 	  << "gradeToSign = "    << i.getGradeToSign()    << ", "
 	  << "gradeToExecute = " << i.getGradeToExecute() << ", "
 	  << "isSigned = "       << i.getIsSigned()
@@ -63,6 +68,9 @@ std::ostream &	operator<<( std::ostream & o, Form const & i ) throw()
 std::string		Form::getName() const throw()
 {	return _name;
 }
+std::string		Form::getTarget() const throw()
+{	return _target;
+}
 int				Form::getGradeToSign() const throw()
 {	return _gradeToSign;
 }
@@ -72,10 +80,19 @@ int				Form::getGradeToExecute() const throw()
 bool			Form::getIsSigned() const throw()
 {	return _isSigned;
 }
+
 void			Form::beSigned( Bureaucrat const & signer )
 	throw ( GradeTooLowException )
 {
 	if ( signer.getGrade() > _gradeToSign )
 		throw GradeTooLowException( signer.getGrade() );
 	_isSigned = true;
+}
+void			Form::checkForExecution( Bureaucrat const & executor ) const
+		throw ( GradeTooLowException, IsNotSignedException )
+{
+	if ( executor.getGrade() > _gradeToExecute )
+		throw GradeTooLowException( executor.getGrade() );
+	if ( !_isSigned )
+		throw IsNotSignedException();
 }

@@ -30,6 +30,7 @@ public:
 	int				incrementGrade() throw ( GradeTooHighException );
 	int				decrementGrade() throw ( GradeTooLowException );
 	void			signForm( Form & ) const;
+	void			executeForm( Form const & ) const;
 private:
 	std::string	const	_name;
 	int					_grade;

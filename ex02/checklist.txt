@@ -1,0 +1,8 @@
+Bureaucrat::executeForm():
+check is via try-catch, not via if ("It must attempt to execute the form")
+
+What for this separate implementation:
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )
+:	  Form( src )
+{}
+?
