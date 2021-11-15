@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 #include <exception>
 
@@ -20,8 +21,10 @@ void testForm( Form & f )
 }
 int	main()
 {
-	std::cout << b150 << b1
-	          << std::endl;
-	PresidentialPardonForm		ppf( "PPTarget" );
+	PresidentialPardonForm	ppf( "PPTarget" );
 	testForm( ppf );
+	std::cout << std::endl;
+
+	RobotomyRequestForm	rrf( "RRTarget" );
+	testForm( rrf );
 }
