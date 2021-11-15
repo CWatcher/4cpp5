@@ -28,6 +28,7 @@ Form::Form( std::string const & name, int gradeToSign, int gradeToExecute )
 	throw ( GradeTooHighException, GradeTooLowException )
 :	  _name( name )
 	, _gradeToSign( gradeToSign ), _gradeToExecute( gradeToExecute )
+	, _isSigned( false )
 {
 	checkGrade( _gradeToSign );
 	checkGrade( _gradeToExecute );
