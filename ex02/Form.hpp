@@ -39,9 +39,8 @@ public:
 	bool			getIsSigned() const throw();
 	void			beSigned( Bureaucrat const & signer )
 		throw ( GradeTooLowException );
-	void virtual	execute( Bureaucrat const & executor ) const
-		throw ( GradeTooLowException, IsNotSignedException )
-		= 0;
+	void			execute( Bureaucrat const & executor ) const
+		throw ( GradeTooLowException, IsNotSignedException );
 protected:
 	std::string	const	_name;
 	std::string	const	_target;
@@ -51,8 +50,8 @@ protected:
 
 	void			checkGrade( int grade ) const
 		throw ( GradeTooHighException, GradeTooLowException );
-	void		checkForExecution( Bureaucrat const & executor ) const
-		throw ( GradeTooLowException, IsNotSignedException );
+	void virtual	executeSpecifically() const
+		= 0;
 };
 
 std::ostream &	operator<<( std::ostream & o, Form const & i ) throw();

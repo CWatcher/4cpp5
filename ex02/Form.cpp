@@ -88,11 +88,12 @@ void			Form::beSigned( Bureaucrat const & signer )
 		throw GradeTooLowException( signer.getGrade() );
 	_isSigned = true;
 }
-void			Form::checkForExecution( Bureaucrat const & executor ) const
+void			Form::execute( Bureaucrat const & executor ) const
 		throw ( GradeTooLowException, IsNotSignedException )
 {
 	if ( executor.getGrade() > _gradeToExecute )
 		throw GradeTooLowException( executor.getGrade() );
 	if ( !_isSigned )
 		throw IsNotSignedException();
+	executeSpecifically();
 }

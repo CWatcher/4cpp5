@@ -10,10 +10,9 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & s
 :	  Form( src )
 {}
 
-void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
+void	PresidentialPardonForm::executeSpecifically() const
 		throw ( GradeTooLowException, IsNotSignedException )
 {
-	checkForExecution( executor );
 	std::cout << _target << " has been pardoned by Zafod Beeblebrox"
 	          << std::endl;
 }

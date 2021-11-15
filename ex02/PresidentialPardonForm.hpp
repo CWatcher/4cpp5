@@ -8,6 +8,6 @@ public:
 	PresidentialPardonForm( PresidentialPardonForm const & src )
 			throw ( GradeTooHighException, GradeTooLowException );
 
-	void	execute( Bureaucrat const & executor ) const
+	void	executeSpecifically() const
 		throw ( GradeTooLowException, IsNotSignedException );
 };
