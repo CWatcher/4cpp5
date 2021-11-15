@@ -15,7 +15,7 @@ char const *	Form::GradeTooLowException::what() const throw()
 {	return "Grade is too low";
 }
 
-void	Form::checkGrade( int grade )
+void	Form::checkGrade( int grade ) const
 	throw ( GradeTooHighException, GradeTooLowException )
 {
 	if ( grade < 1 )

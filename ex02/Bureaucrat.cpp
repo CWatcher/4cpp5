@@ -14,7 +14,7 @@ char const *	Bureaucrat::GradeTooLowException::what() const throw()
 {	return "Grade is too low";
 }
 
-void	Bureaucrat::checkGrade( int grade )
+void	Bureaucrat::checkGrade( int grade ) const
 	throw ( GradeTooHighException, GradeTooLowException )
 {
 	if ( grade < 1 )
@@ -72,7 +72,7 @@ int				Bureaucrat::decrementGrade() throw ( GradeTooLowException )
 	return ++_grade;
 }
 
-void			Bureaucrat::signForm( Form & form )
+void			Bureaucrat::signForm( Form & form ) const
 {
 	try
 	{	form.beSigned( *this );

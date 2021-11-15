@@ -40,7 +40,7 @@ private:
 	int	const			_gradeToExecute;
 	bool				_isSigned;
 
-	void		checkGrade( int grade )
+	void		checkGrade( int grade ) const
 		throw ( GradeTooHighException, GradeTooLowException );
 };
 

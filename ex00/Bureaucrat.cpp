@@ -14,7 +14,7 @@ char const *	Bureaucrat::GradeTooLowException::what() const throw()
 {	return "Grade is too low";
 }
 
-void	Bureaucrat::checkGrade( int grade )
+void	Bureaucrat::checkGrade( int grade ) const
 	throw ( GradeTooHighException, GradeTooLowException )
 {
 	if ( grade < 1 )

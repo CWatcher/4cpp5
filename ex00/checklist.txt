@@ -1,1 +1,2 @@
 throw() specificator for exception methods (as in video)
+Why getName() returns value ( or const & ). Advantages and disadvantages

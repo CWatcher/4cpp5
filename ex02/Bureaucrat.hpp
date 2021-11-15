@@ -29,11 +29,11 @@ public:
 	int				getGrade() const throw();
 	int				incrementGrade() throw ( GradeTooHighException );
 	int				decrementGrade() throw ( GradeTooLowException );
-	void			signForm( Form & );
+	void			signForm( Form & ) const;
 private:
 	std::string	const	_name;
 	int					_grade;
-	void			checkGrade( int grade )
+	void			checkGrade( int grade ) const
 		throw ( GradeTooHighException, GradeTooLowException );
 };
 
