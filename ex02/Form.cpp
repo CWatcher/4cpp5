@@ -60,7 +60,7 @@ std::ostream &	operator<<( std::ostream & o, Form const & i ) throw()
 	  << "target = "         << i.getTarget()         << ", "
 	  << "gradeToSign = "    << i.getGradeToSign()    << ", "
 	  << "gradeToExecute = " << i.getGradeToExecute() << ", "
-	  << "isSigned = "       << i.getIsSigned()
+	  << "isSigned = "       << i.isSigned()
 	  << " }" << std::endl;
 	return o;
 }
@@ -77,7 +77,7 @@ int				Form::getGradeToSign() const throw()
 int				Form::getGradeToExecute() const throw()
 {	return _gradeToExecute;
 }
-bool			Form::getIsSigned() const throw()
+bool			Form::isSigned() const throw()
 {	return _isSigned;
 }
 

@@ -31,7 +31,7 @@ public:
 	std::string	getName() const throw();
 	int			getGradeToSign() const throw();
 	int			getGradeToExecute() const throw();
-	bool		getIsSigned() const throw();
+	bool		isSigned() const throw();
 	void		beSigned( Bureaucrat const & signer )
 		throw ( GradeTooLowException );
 private:

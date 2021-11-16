@@ -36,7 +36,7 @@ public:
 	std::string		getTarget() const throw();
 	int				getGradeToSign() const throw();
 	int				getGradeToExecute() const throw();
-	bool			getIsSigned() const throw();
+	bool			isSigned() const throw();
 	void			beSigned( Bureaucrat const & signer )
 		throw ( GradeTooLowException );
 	void			execute( Bureaucrat const & executor ) const

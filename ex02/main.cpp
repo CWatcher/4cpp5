@@ -16,7 +16,7 @@ void testForm( Form & f )
 
 	b145.signForm( f );
 	b25.executeForm( f );
-	if ( !f.getIsSigned() )
+	if ( !f.isSigned() )
 		b25.signForm( f );
 	b5.executeForm( f );
 }
