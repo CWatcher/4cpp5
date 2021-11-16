@@ -21,6 +21,6 @@ void	RobotomyRequestForm::executeSpecifically() const
 		" has been robotomized successfully",
 		" has been failed to be robotomized"
 	};
-	std::cout << "Z-z-Z-z... Z-z-Z-z-Z... " << _target << result[ rand() % 2 ]
+	std::cout << "Z-z-Z-z... Z-z-Z-z-Z... " << getTarget() << result[ rand() % 2 ]
 	          << std::endl;
 }

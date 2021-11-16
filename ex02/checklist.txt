@@ -1,3 +1,5 @@
+"the form’s attributes need to remain private, and in the base class"
+
 Bureaucrat::executeForm():
 check is via try-catch, not via if ("It must attempt to execute the form")
 

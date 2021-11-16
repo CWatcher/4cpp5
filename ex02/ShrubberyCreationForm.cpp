@@ -21,7 +21,7 @@ void	ShrubberyCreationForm::executeSpecifically() const
 		 V  \n\
 		 I";
 
-	std::ofstream 	f( ( _target + "_shrubbery" ).c_str() );
+	std::ofstream 	f( ( getTarget() + "_shrubbery" ).c_str() );
 	for ( int i = 0; i < 3; i++ )
 		f << tree << std::endl << std::endl;
 }

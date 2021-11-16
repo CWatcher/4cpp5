@@ -13,6 +13,6 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & s
 void	PresidentialPardonForm::executeSpecifically() const
 		throw ( GradeTooLowException, IsNotSignedException )
 {
-	std::cout << _target << " has been pardoned by Zafod Beeblebrox"
+	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox"
 	          << std::endl;
 }

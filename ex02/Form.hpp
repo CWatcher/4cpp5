@@ -41,7 +41,7 @@ public:
 		throw ( GradeTooLowException );
 	void			execute( Bureaucrat const & executor ) const
 		throw ( GradeTooLowException, IsNotSignedException );
-protected:
+private:
 	std::string	const	_name;
 	std::string	const	_target;
 	int	const			_gradeToSign;
