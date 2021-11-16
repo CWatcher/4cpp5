@@ -1,40 +1,35 @@
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
 #include <iostream>
-#include <exception>
 
-Bureaucrat	b145( "b145", 145 );
+Bureaucrat	b72( "b72", 72 );
 Bureaucrat	b25( "b25", 25 );
 Bureaucrat	b5( "b5", 5 );
 
-void testForm( Form & f )
+void testForm( Form* pf )
 {
-	std::cout << f
+	std::cout << *pf
 	          << std::endl;
 
-	b145.signForm( f );
-	b25.executeForm( f );
-	if ( !f.isSigned() )
-		b25.signForm( f );
-	b5.executeForm( f );
+	b72.signForm( *pf );
+	b25.executeForm( *pf );
+	if ( !pf->isSigned() )
+		b25.signForm( *pf );
+	b5.executeForm( *pf );
+	delete pf;
+
+	std::cout << std::endl;
 }
 int	main()
 {
 	Intern	intern;
-
-
 	try {
-		Form* pf = intern.makeForm( "PresidentialPardon",	"PPTarget" );
-		testForm( *pf );
+		testForm( intern.makeForm( "PresidentialPardon",	"PPTarget" ) );
+		testForm( intern.makeForm( "RobotomyRequest", "RRTarget" ) );
+		testForm( intern.makeForm( "ShrubberyCreation",	"SCTarget" ) );
+		testForm( intern.makeForm( "non-existent",	"some target" ) );
 	}
-	catch (...){}
-	// testForm( ppf );
-	// std::cout << std::endl;
-
-	// RobotomyRequestForm	rrf( "RRTarget" );
-	// testForm( rrf );
-	// std::cout << std::endl;
-
-	// ShrubberyCreationForm*	pSCF = new ShrubberyCreationForm( "SCTarget" );
-	// delete pSCF;
+	catch ( std::exception const & e) {
+		std::cout << e.what() << std::endl << std::endl;
+	}
 }

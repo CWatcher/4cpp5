@@ -12,7 +12,10 @@ Intern &	Intern::operator=( Intern const & )
 }
 
 Intern::FormNameFunctionEntry const Intern::functionsDic[] = {
-	{ "none", NULL }
+	{ "PresidentialPardon", &Intern::makePresidentialPardonForm },
+	{ "RobotomyRequest"   , &Intern::makeRobotomyRequestForm    },
+	{ "ShrubberyCreation" , &Intern::makeShrubberyCreationForm  },
+	{ "none"              , &Intern::throwException             }
 };
 
 Form*		Intern::makeForm( std::string const & formName,
@@ -23,10 +26,18 @@ Form*		Intern::makeForm( std::string const & formName,
 	while (i < sizeof(functionsDic) / sizeof(functionsDic[0]) - 1
 	       && formName != functionsDic[i].name)
 		i++;
-	return ( this->*functionsDic[i].function )( target );
+	return ( this->*functionsDic[i].makeFunction )( target );
 }
-PresidentialPardonForm*	Intern::makePresidentialPardonForm( std::string const & )
-	const
-{
-	return NULL;
+
+Form*	Intern::makePresidentialPardonForm( std::string const & target ) const
+{	return new PresidentialPardonForm( target );
+}
+Form*	Intern::makeRobotomyRequestForm( std::string const & target ) const
+{	return new RobotomyRequestForm( target );
+}
+Form*	Intern::makeShrubberyCreationForm( std::string const & target ) const
+{	return new ShrubberyCreationForm( target );
+}
+Form*	Intern::throwException( std::string const & ) const
+{	 throw std::out_of_range( "Form not found" );
 }
