@@ -1,14 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
-#include <cstdlib>
-#include <ctime>
+#include <fstream>
+
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target )
 	throw ( GradeTooHighException, GradeTooLowException )
-:	  Form( "ShrubberyCreation", target, 72, 45 )
-{
-	srand( time( NULL ) );
-}
+:	  Form( "ShrubberyCreation", target, 145, 137 )
+{}
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src )
  	throw ( GradeTooHighException, GradeTooLowException )
 :	  Form( src )
@@ -17,10 +15,13 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src 
 void	ShrubberyCreationForm::executeSpecifically() const
 		throw ( GradeTooLowException, IsNotSignedException )
 {
-	std::string	const result[2] = {
-		" has been robotomized successfully",
-		" has been failed to be robotomized"
-	};
-	std::cout << "Z-z-Z-z... Z-z-Z-z-Z... " << _target << result[ rand() % 2 ]
-	          << std::endl;
+	std::string const static tree = "\
+		 #  \n\
+		#|# \n\
+		 V  \n\
+		 I";
+
+	std::ofstream 	f( ( _target + "_shrubbery" ).c_str() );
+	for ( int i = 0; i < 3; i++ )
+		f << tree << std::endl << std::endl;
 }

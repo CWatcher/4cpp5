@@ -6,3 +6,6 @@ make > /dev/null		\
 
 echo
 valgrind -q ./aa
+echo "SCTarget_shrubbery file:"
+cat SCTarget_shrubbery
+rm SCTarget_shrubbery
