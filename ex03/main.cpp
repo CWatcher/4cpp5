@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 #include <exception>
 
@@ -22,15 +20,21 @@ void testForm( Form & f )
 }
 int	main()
 {
-	PresidentialPardonForm	ppf( "PPTarget" );
-	testForm( ppf );
-	std::cout << std::endl;
+	Intern	intern;
 
-	RobotomyRequestForm	rrf( "RRTarget" );
-	testForm( rrf );
-	std::cout << std::endl;
 
-	ShrubberyCreationForm*	pSCF = new ShrubberyCreationForm( "SCTarget" );
-	testForm( *pSCF );
-	delete pSCF;
+	try {
+		Form* pf = intern.makeForm( "PresidentialPardon",	"PPTarget" );
+		testForm( *pf );
+	}
+	catch (...){}
+	// testForm( ppf );
+	// std::cout << std::endl;
+
+	// RobotomyRequestForm	rrf( "RRTarget" );
+	// testForm( rrf );
+	// std::cout << std::endl;
+
+	// ShrubberyCreationForm*	pSCF = new ShrubberyCreationForm( "SCTarget" );
+	// delete pSCF;
 }

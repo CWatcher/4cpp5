@@ -12,6 +12,14 @@ public:
 	Intern( const Intern & src );
 	~Intern();
 	Intern &	operator=( Intern const & rhs );
-	Form*		makeForm( std::string const & form, std::string const & target )
+	Form*		makeForm( std::string const & formName, std::string const & target )
 		const;
+	struct FormNameFunctionEntry {
+		std::string 		name;
+		Form* (Intern::*	function)( std::string const & ) const;
+	};
+private:
+	PresidentialPardonForm*	makePresidentialPardonForm( std::string const & target )
+		const;
+	static const FormNameFunctionEntry functionsDic[];
 };
