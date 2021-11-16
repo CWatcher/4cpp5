@@ -14,4 +14,5 @@ int	main()
 
 	b150.signForm( f1 );
 	b1.signForm( f1 );
+	std::cout << f1;
 }
