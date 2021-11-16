@@ -3,6 +3,7 @@ SRC			=	Bureaucrat.cpp				\
 				PresidentialPardonForm.cpp	\
 				RobotomyRequestForm.cpp		\
 				ShrubberyCreationForm.cpp	\
+				Intern.cpp					\
 				main.cpp
 OBJ			=	$(SRC:.cpp=.o)
 NAME		=	aa
