@@ -16,19 +16,20 @@ void testForm( Form & f )
 
 	b145.signForm( f );
 	b25.executeForm( f );
-	if ( !f.isSigned() )
+	if ( !f.isSigned() ) {
 		b25.signForm( f );
+		b25.executeForm( f );
+	}
 	b5.executeForm( f );
+	std::cout << std::endl;
 }
 int	main()
 {
 	PresidentialPardonForm	ppf( "PPTarget" );
 	testForm( ppf );
-	std::cout << std::endl;
 
 	RobotomyRequestForm	rrf( "RRTarget" );
 	testForm( rrf );
-	std::cout << std::endl;
 
 	ShrubberyCreationForm*	pSCF = new ShrubberyCreationForm( "SCTarget" );
 	testForm( *pSCF );
